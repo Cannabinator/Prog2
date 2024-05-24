@@ -21,22 +21,22 @@ public class ConcreteStapel<T> implements Stapel {
 
     @Override
     public void pop() {
-        stapel.remove(stapel.size()-1);
+        stapel.remove(top());
     }
 
     @Override
     public T top() {
-        return null;
+        return stapel.get(stapel.size()-1);
     }
 
     @Override
     public void pushElement(Object e) {
-
+        System.out.println(-1);
     }
 
     @Override
   public void push(Object object){
-      stapel.add((T) object);
+      stapel.add(stapel.size()-1, (T) object);
   }
 
     @Override
