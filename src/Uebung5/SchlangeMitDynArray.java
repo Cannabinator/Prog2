@@ -7,34 +7,31 @@ import java.util.Iterator;
 
 public class SchlangeMitDynArray<T> implements Schlange<T> {
 
-    private MengeDynArray<T> schlange;
-    private T first;
-    private T last;
+    private DynArray<T> schlange;
 
     public SchlangeMitDynArray() {
-        schlange = new MengeDynArray<>();
-        if(!schlange.isEmpty()){
-            first = schlange.get();
-        }
+        schlange = new DynArray<>();
     }
 
 
     @Override
     public T front() {
-        return schlange.get();
+        return schlange.get(0);
     }
 
     @Override
     public void enQ(T e) { // add element e at the end of the snake
-        schlange.insert(e);
-        last = e;
+        schlange.add(e);
     }
 
     @Override
-    public void deQ() {// remove the first element in the snake
-
-            first = schlange.get();
+    public void deQ() {
+        if (schlange.isEmpty()) {
+            throw new IllegalStateException("Queue is empty");
+        }
+        schlange.remove(0);
     }
+
 
     @Override
     public String toString() {
