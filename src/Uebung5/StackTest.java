@@ -18,10 +18,20 @@ public class StackTest<T>{
     }
     @Test
     public void popTest(){
+        s = new ConcreteStapel<>();
         s.push(1);
         s.push(2);
         s.pop();
         assertEquals(1,s.top());
+    }
+
+    @Test
+    public void topTest(){
+        s = new ConcreteStapel<>();
+        for (int i=0;i<=10;i++){
+            s.push(i);
+        }
+        assertEquals(10,s.top());
     }
 
     @Test

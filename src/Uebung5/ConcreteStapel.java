@@ -1,18 +1,19 @@
 package Uebung5;
 
+import Interfaces.Stapel;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 
-public class ConcreteStapel<T> implements Stapel {
-
+public class ConcreteStapel<T> implements Stapel<T> {
     /*
      * void pop()
      * Object top()
      * push(Object e)
      * boolean isEmpty()
      *
-     * Stapel als Dynamisches Array mit Start groeße 2
+     * Stapel als Dynamisches Array
      */
-
     ArrayList<T> stapel;
 
     public ConcreteStapel(){
@@ -30,17 +31,31 @@ public class ConcreteStapel<T> implements Stapel {
     }
 
     @Override
-    public void pushElement(Object e) {
-        System.out.println(-1);
-    }
+    public void push(T e){
+      stapel.add(e);
+  }
 
     @Override
-  public void push(Object object){
-      stapel.add(stapel.size()-1, (T) object);
-  }
+    public int size() {
+        return 0;
+    }
 
     @Override
     public boolean isEmpty() {
         return stapel.isEmpty();
+    }
+
+    @Override
+    public String toString(){
+        String ret = "";
+        for(int i=0;i<stapel.size()-1;i++){
+            ret += " "+stapel.get(i);
+        }
+        return ret;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return null;
     }
 }
